@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+</head>
+<body>
+    <h1>{{title}}</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Title</th>
+                <th>Image Url</th>
+                <th>Stars</th>
+                <th>Reviews</th>
+                <th>Price</th>
+                <th>List Price</th>
+                <th>Category Name</th>
+                <th>Is Best Seller?</th>
+                <th>Bought in Last Month</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            {{products}}
+            <tr>
+                <td>{{getProperty "asin"}}</td>
+                <td>{{getProperty "title"}}</td>
+                <td>{{getProperty "imgUrl"}}</td>
+                <td>{{getProperty "stars"}}</td>
+                <td>{{getProperty "reviews"}}</td>
+                <td>{{getProperty "price"}}</td>
+                <td>{{getProperty "listPrice"}}</td>
+                <td>{{getProperty "categoryName"}}</td>
+                <td>{{getProperty "isBestSeller"}}</td>
+                <td>{{getProperty "boughtInLastMonth"}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>

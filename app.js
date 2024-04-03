@@ -23,7 +23,7 @@ app.engine(
   // Set the view engine to Handlebars
   app.set("view engine", "hbs");
   
-
+mongoose.set('strictQuery', false);
 mongoose.connect(database.url);
 
 var Product = require('./models/products');
@@ -35,9 +35,9 @@ app.get('/api/products', function(req, res) {
 
 	Product.find()
 		.exec()
-		.then((products) => res.json(products))
+		.then((products) => res.render("allData", { title: "All Products", products: products }))
 		.catch((error) => res.status(400).json('Error :' + error));
-	});
+});
 
 
 // get a product with ID of 1

@@ -30,7 +30,7 @@ var Product = require('./models/products');
  
  
 //get all product data from db
-app.get('/api/products', function(req, res) {
+app.get('/api/products', async function(req, res) {
     Product.find().then(function(products) {
         res.render("allData", { title: "All Products", products: products });
     }).catch(function(err) {

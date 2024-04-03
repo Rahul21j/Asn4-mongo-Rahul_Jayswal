@@ -24,7 +24,7 @@ app.engine(
   app.set("view engine", "hbs");
   
 
-mongoose.connect(database.url, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(database.url);
 
 var Product = require('./models/products');
  

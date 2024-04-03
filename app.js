@@ -30,14 +30,14 @@ var Product = require('./models/products');
  
  
 //get all product data from db
-app.get('/api/products', async function(req, res) {
-	// use mongoose to get all todos in the database
-	const products = await Product.find().limit(10);
-	Product.find()
-		.exec()
-		.then((products) => res.render("allData", { title: "All Products", products: products }))
-		.catch((error) => res.status(400).json('Error :' + error));
+app.get('/api/products', function(req, res) {
+    Product.find().then(function(products) {
+        res.render("allData", { title: "All Products", products: products });
+    }).catch(function(err) {
+        res.status(500).json({ message: err.message });
+    });
 });
+
 
 
 // get a product with ID of 1

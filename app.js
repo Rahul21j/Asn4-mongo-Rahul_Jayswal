@@ -32,13 +32,13 @@ var Product = require('./models/products');
 //get all product data from db
 app.get('/api/products', function(req, res) {
 	// use mongoose to get all todos in the database
-	Product.find(function(err, products) {
-		// if there is an error retrieving, send the error otherwise send data
-		if (err)
-			res.send(err)
-        res.render("allData", { title: "All Products", products: products });
+
+	Product.find()
+		.exec()
+		.then((products) => res.json(products))
+		.catch((error) => res.status(400).json('Error :' + error));
 	});
-});
+
 
 // get a product with ID of 1
 app.get('/api/products/:asin', function(req, res) {
